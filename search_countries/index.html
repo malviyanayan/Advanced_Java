@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 40%;
+            margin: 10px auto;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        input {
+            padding: 4px;
+            width: 200px;
+        }
+
+        #suggetion {
+            width: 200px;
+            border: 1px solid gray;
+            position: relative;
+            left: 56px;
+            bottom: 9px;
+            padding: 8px;
+            border-radius: 10px;
+            max-height: 180px;
+            height: max-content;
+            overflow-y: scroll;
+            display: none;
+        }
+
+        #suggetion::-webkit-scrollbar {
+            display: none;
+        }
+
+        .clss{
+            /* margin: 10px; */
+            padding: 10px;
+            display: block;
+            /* border: 1px solid lightblue; */
+        }
+
+        .clss:hover{
+            background-color: #e3e5e9;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 align="center">Search Countries...</h1>
+    <div>
+        <label for="country">Enter Country Name : </label>
+        <input type="text" id="inp" placeholder="Enter...">
+        <div id="suggetion">
+            
+        </div>
+    </div>
+
+
+    <script>
+        let inp = document.getElementById("inp");
+        let sug = document.getElementById("suggetion");
+
+        sug.addEventListener('click', (ev) => {
+            inp.value = ev.target.innerText;
+            sug.style.display = 'none';
+        });
+
+        let getdata = async () =>{
+            let response = await fetch("select.do?inp="+inp.value);
+            return await response.text();
+        }
+
+        inp.addEventListener('keyup',()=>{
+            getdata().then((data)=>{
+                sug.innerHTML = "";
+                let myData = JSON.parse(data);
+                // console.log(myData);
+                
+                    sug.style.display = "block";
+                    for(let obj of myData){
+                        let spn = document.createElement("span");
+                        spn.className = "clss";
+                        spn.innerText = obj["country"];
+                        sug.appendChild(spn);
+                    }
+            }).catch((error)=>{
+                console.log(error);
+            })
+            console.log(response);
+        });
+    </script>
+</body>
+
+</html>
