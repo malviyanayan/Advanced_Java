@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax-1</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            background-color: #121212;
+        }
+
+        h1{
+            color: white;
+            background-color: #333;
+            text-align: center;
+        }
+
+        .box{
+            width: 50%;
+            margin: 40px auto;
+            height: 40%;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #content{
+            width: 80%;
+            height: max-content;
+            background-color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        button{
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>AJAX programming</h1>
+
+    <div class="box">
+        <div id="content"></div>
+        <button id="btn">Request</button>
+    </div>
+
+    <script>
+        let btn = document.getElementById("btn");
+
+
+        let request = function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("get","act.do",true);
+
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("content").innerHTML = this.responseText;
+                }
+            }
+
+            xhttp.send();
+        }
+
+        btn.addEventListener('click',request);
+    
+    </script>
+</body>
+</html>
