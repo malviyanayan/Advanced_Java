@@ -1,0 +1,40 @@
+#form_box {
+    background-color: rgb(232, 216, 216);
+    margin: 40px auto;
+    width: 40%; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #333;
+    border-radius: 10px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold; 
+    color: #601717;   
+}
+
+input {
+    font-size: 20px;
+    padding: 8px 12px;
+    width: 94%;
+    border-radius: 5px;
+    border: 1px solid #555;
+    margin-top: 5px;
+}
+
+#form_box h2 {
+    background-color: #601717;
+    color: #fff;
+    padding: 8px 15px;
+    margin-bottom: 30px;
+}
+
+#form_box > div {
+    margin: 20px auto;
+    width: 80%;
+}
+
+input[type='submit'] {
+    width: 25%;
+}

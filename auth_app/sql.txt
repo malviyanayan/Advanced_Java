@@ -1,0 +1,43 @@
+create database authdb;
+
+use authdb;
+
+create table users 
+(
+    user_id int auto_increment primary key,
+    full_name char(35) not null,
+    email char(255) not null unique,
+    password char(255) not null,
+    gender char(1),
+    city char(60),
+    address varchar(500)
+);
+
+alter table users add column dob date after password;
+
+create table products 
+(
+    product_id int auto_increment primary key,
+    product_name char(45) not null,
+    price int not null,
+    weight float not null,
+    quantity int not null,
+    sold int not null default 0,
+    description varchar(2000) not null,
+    user_id int not null,
+    constraint fk_products_users foreign key (user_id) references users (user_id) 
+);
+
+alter table products add column pic char(255) after description;
+
+
+alter table products modify column pic char(255) not null default 'static/media/images/product.png';
+
+insert into products 
+(product_name,price,weight,quantity,description,user_id)
+values
+('SSD',4000,100,20,'some info about SSD',1),
+('RAM',3500,20,110,'some info about RAM',1),
+('CPU',23000,50,8,'some info about CPU',1),
+('KeyBoard',700,175,200,'some info about kbd',1),
+('Screen',10000,2000,12,'some info about scr',1);

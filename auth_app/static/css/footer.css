@@ -1,0 +1,15 @@
+#footer {
+    /* border: 3px solid yellowgreen; */
+    height: 20px;
+    padding: 5px 12px;
+    color: rgb(87, 15, 15);
+    border-top: 1px solid rgb(167, 110, 11);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: rgb(233, 222, 239);
+    box-shadow: 5px 5px 10px rgb(167, 110, 11) inset;
+    position: fixed;
+    bottom: 0;
+    width: 86%;
+}
+
