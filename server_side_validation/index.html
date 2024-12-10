@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Side Validation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(228, 238, 207);
+        }
+
+        form{
+            border: 1px solid black;
+            width: 50%;
+            height: max-content;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 4px 5px 4px rgb(98, 97, 97);
+            border-radius: 10px;
+            border: 1px solid rgb(183, 178, 178);
+        }
+
+        label{
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        input{
+            width: 400px;
+            height: 26px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <form action="save.do" method="post">
+        <h1>Sign Up</h1>
+        <div>
+            <label for="name">Name : </label>
+            <input type="text" name="name" id="name" placeholder="Enter Name...">
+        </div>
+
+        <div>
+            <label for="email">Email : </label>
+            <input type="text" name="email" id="email" placeholder="Enter Email...">
+        </div>
+
+        <div>
+            <label for="password">Pass : </label>
+            <input type="text" name="password" id="password" placeholder="Enter PassWord...">
+        </div>
+
+        <div>
+            <input type="submit" value="Save">
+        </div>
+    </form>
+
+</body>
+</html>
