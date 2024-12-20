@@ -1,0 +1,89 @@
+body {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#send-to {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#send-to input, #send-to select, #send-to button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.email-box {
+    border: 1px solid #a9a1a1;
+    border-radius: 5px;
+    padding: 10px;
+    width: 60%;
+    min-height: 150px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    width: 40%;
+    background-color: #fff;
+}
+
+.email-box h3 {
+    margin: 0 0 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+.email-item {
+    padding: 5px 10px;
+    margin: 5px 0;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: grab;
+}
+
+#send-email {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin: 40px;
+    background-color: #007bff; /* Primary blue color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#send-email:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+#send-email:active {
+    background-color: #004494; /* Even darker blue for active state */
+    transform: scale(1); /* Reset scale on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow change */
+}
+
+#send-email:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus ring */
+}
+
+
+body>span{
+    display: inline-block;
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    gap: 40px;
+    height: max-content;
+}

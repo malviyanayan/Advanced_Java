@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook Application</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <h1 style="text-align: center;margin-top: 30px;text-decoration: underline;">Email Sending App</h1>
+
+    
+
+    <div id="send-to">
+        <label for="main-email"><h2>To : </h2></label>
+        <input type="email" id="main-email" placeholder="Enter Email ..."  required>
+        <br><br>
+
+        <label for="email-input"><h3>Send Also : </h3></label>
+        <input type="email" id="email-input" placeholder="This is optional ...">
+        <select id="email-type" name="type">
+            <option value="cc">CC</option>
+            <option value="bcc">BCC</option>
+        </select>
+        <button id="add-eml-btn">Add Email</button>
+    </div>
+
+    <span>
+        <div id="cc-box" class="email-box" data-type="cc">
+            <h3>CC Emails</h3>
+        </div>
+    
+        <div id="bcc-box" class="email-box" data-type="bcc">
+            <h3>BCC Emails</h3>
+        </div>
+    </span>
+
+
+
+
+    <div id="notebook-container">
+        <header>
+            <input type="text" id="heading" placeholder="Email Heading">
+        </header>
+        <section id="content-section">
+            <input type="text" class="subheading" id="sb-heading" placeholder="Topic">
+            <textarea class="content" id="main-cont" placeholder="Write your content here..."></textarea>
+        </section>
+        <button id="add-section-btn">send Email</button>
+    </div>
+    <script src="script.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook</title>
+    <link rel="stylesheet" href="static/css/index.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            padding: 0;
+            padding-top: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #aeaaaa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            height: 100vh;
+            padding-bottom: 20px;
+        }
+
+        #notebook {
+            width: 90%;
+            max-width: 600px;
+            margin-top: 20px;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #heading-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .line-input {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 5px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .line-input:last-of-type {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- To Send mail -->
+    <!-- <div id="send-to">
+        <input type="text">
+        <select name="type">
+            <option value="cc">CC</option>
+            <option value="bcc">BCC</option>
+        </select>
+        <button id="add-eml-btn">Add Email</button> -->
+        <!-- when we click add email button if type css selected push into cc-box
+         or for bcc push into bcc box cc wali emails ka name cc-eml aur bcc emails ka name bcc emails hona chahiye
+         aur dono box mai email dragable hona chahiye that means mai ydi cc ki email ko bcc me drag karke le jaun
+         to bo wana pahuch jana chahiye aur type bcc-eml ho jana chahiye
+          -->
+
+          <!-- sirf itne content ka html likhna aur css aur js alag se likhna extra text likhne samjhane ki jarurat nhi -->
+    <!-- </div>
+
+
+    
+    <div id="cc-box">
+
+    </div>
+
+    <div id="bcc-box">
+
+    </div> -->
+
+
+
+    <div id="send-to">
+        <input type="email" id="email-input" placeholder="Enter Email">
+        <select id="email-type" name="type">
+            <option value="cc">CC</option>
+            <option value="bcc">BCC</option>
+        </select>
+        <button id="add-eml-btn">Add Email</button>
+    </div>
+
+    <span>
+        <div id="cc-box" class="email-box" data-type="cc">
+            <h3>CC Emails</h3>
+        </div>
+    
+        <div id="bcc-box" class="email-box" data-type="bcc">
+            <h3>BCC Emails</h3>
+        </div>
+    </span>
+
+
+
+    <div id="notebook">
+        <input id="heading-input" type="text" placeholder="Heading">
+        <div id="lines-container">
+            <input class="line-input" type="text" placeholder="Write here...">
+        </div>
+    </div>
+    
+    <button id="send-email">Send Email</button>
+
+    <script>
+
+        let sendEmlBtn = document.getElementById("send-email");
+
+        sendEmlBtn.addEventListener("click",()=>{
+            let ccItms = document.querySelectorAll("#cc-box>.email-item");
+            let ccEmails = "";
+            for(let i=0;i<ccItms.length;i++){
+                let str = ccItms[i].innerHTML;
+                if(!(ccEmails == "")){
+                    str = "," + str;
+                }
+
+                ccEmails = ccEmails + str;
+            }
+
+            let bccItms = document.querySelectorAll("#bcc-box>.email-item");
+            let bccEmails = "";
+            for(let i=0;i<bccItms.length;i++){
+                let str = bccItms[i].innerHTML;
+                if(!(bccEmails == "")){
+                    str = "," + str;
+                }
+
+                bccEmails = bccEmails + str;
+            }
+
+
+            console.log(ccEmails);
+            console.log(bccEmails);
+            let h = document.getElementById("heading-input");
+            console.log(h.innerHTML);
+            
+            
+            
+        })
+
+
+        const linesContainer = document.getElementById('lines-container');
+
+        linesContainer.addEventListener('input', (event) => {
+            const inputs = document.querySelectorAll('.line-input');
+            const lastInput = inputs[inputs.length - 1];
+
+            // If the last input is not empty, add a new line
+            if (lastInput.value.trim() !== '') {
+                const newLine = document.createElement('input');
+                newLine.type = 'text';
+                newLine.className = 'line-input';
+                newLine.placeholder = 'Write here...';
+                linesContainer.appendChild(newLine);
+            }
+        });
+    </script>
+    <script src="static/js/index.js"></script>
+</body>
+</html>
